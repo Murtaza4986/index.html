@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المساعد في الابتزاز الإلكتروني - مرتضى</title>
+    <style>
+        /* الخطوط الأساسية */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            text-align: center;
+            color: white;
+        }
+
+        /* خلفية العلم الأمريكي */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg') no-repeat center center fixed; /* رابط مباشر لصورة العلم */
+            background-size: cover;
+            z-index: -1;
+            filter: brightness(0.7);
+        }
+
+        /* العنوان والنص */
+        header h1 {
+            margin-top: 50px;
+            font-size: 3rem;
+            color: #ffffff;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        header p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .highlight {
+            color: #ff5733;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                color: #ff5733;
+            }
+            50% {
+                color: #ffd700;
+            }
+        }
+
+        /* الفورم */
+        form {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            margin-top: 30px;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            font-size: 1rem;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        /* الأزرار */
+        button {
+            background: linear-gradient(45deg, #1E90FF, #00BFFF);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        button:active {
+            transform: scale(1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* الرسالة المخفية */
+        .hidden {
+            display: none;
+        }
+
+        #confirmationMessage {
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+            color: #4CAF50;
+            font-size: 1.2rem;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* صورة الأمان المتحركة */
+        .animation-container {
+            margin-top: 40px;
+            animation: float 3s infinite;
+        }
+
+        .secure-image {
+            width: 200px;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #000;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* الفوتر */
+        footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            color: #fff;
+            text-shadow: 1px 1px 2px #000;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <header>
+        <h1>مرحبًا بك في <span class="highlight">المساعد في الابتزاز الإلكتروني - مرتضى</span></h1>
+        <p>منصة لمساعدتك في حماية خصوصيتك ومكافحة الابتزاز الإلكتروني.</p>
+    </header>
+    <main>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <label for="file">اختر صورة لرفعها:</label><br><br>
+            <input type="file" id="file" name="file" required><br><br>
+            <button type="submit">رفع الصورة</button>
+        </form>
+        <div id="confirmationMessage" class="hidden">
+            <h2>تم حفظ الصورة بنجاح</h2>
+            <p>شكرًا على تواصلكم معنا<br>فريق الأمن السيبراني - CIA</p>
+        </div>
+        <div class="animation-container">
+            <img src="https://example.com/secure.gif" alt="أمن وخصوصية" class="secure-image">
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 جميع الحقوق محفوظة - المساعد في الابتزاز الإلكتروني مرتضى</p>
+    </footer>
+    <script>
+        // عرض رسالة التأكيد عند رفع الصورة
+        document.getElementById("uploadForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // منع الإرسال الافتراضي
+
+            // التحقق من اختيار ملف
+            const fileInput = document.getElementById("file");
+            if (fileInput.files.length > 0) {
+                // إخفاء النموذج
+                document.getElementById("uploadForm").style.display = "none";
+
+                // عرض رسالة التأكيد
+                document.getElementById("confirmationMessage").classList.remove("hidden");
+            } else {
+                alert("الرجاء اختيار صورة قبل رفعها.");
+            }
+        });
+    </script>
+</body>
+</html>
